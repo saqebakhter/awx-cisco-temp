@@ -1,13 +1,13 @@
-- shell: "net-dvs -s com.vmware.vswitch.port.mcast.user.addresses=true -p {{outer_item.dvPortId}} PRP-Primary"
+- shell: "net-dvs -s com.vmware.vswitch.port.mcast.user.addresses=true -p {{outer_item.dvPortId}} {{switchName}}"
   register: output 
 
-- shell: "net-dvs -s com.vmware.common.port.profinet=1 -p {{outer_item.dvPortId}} PRP-Primary"
+- shell: "net-dvs -s com.vmware.common.port.profinet=1 -p {{outer_item.dvPortId}} {{switchName}}"
   register: output 
 
-- shell: "net-dvs -s com.vmware.vswitch.port.priority.retain=true -p {{outer_item.dvPortId}} PRP-Primary"
+- shell: "net-dvs -s com.vmware.vswitch.port.priority.retain=true -p {{outer_item.dvPortId}} {{switchName}}"
   register: output 
 
-- shell: "nsxdp-cli vswitch teaming policy set -a 'Uplink 3' -s 'Uplink 1' -s 'Uplink 2' -b LB_SRCID -p {{outer_item.dvPortId}} -dvs PRP-Primary"
+- shell: "nsxdp-cli vswitch teaming policy set -a 'Uplink 3' -s 'Uplink 1' -s 'Uplink 2' -b LB_SRCID -p {{outer_item.dvPortId}} -dvs {{switchName}}"
   register: output 
 
 # - name: parse output of ports
