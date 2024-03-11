@@ -21,4 +21,4 @@
     loop_control:
       loop_var: outer_item
     loop: "{{ports[0]}}"
-    when: "'ievd' in outer_item.client or 'vPLC' in outer_item.client"    
+    when: "'ievd' in outer_item.client or 'vPLC' in outer_item.client or 'Ixia_Virtual_Test_Appliance' in outer_item.client"    
