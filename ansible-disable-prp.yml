@@ -11,7 +11,7 @@
       username: '{{ vcenter_username }}'
       password: '{{ vcenter_password }}'
       validate_certs: false
-      folder: "/Audi/vm/vplc-prp"
+      folder: "/EC4P/vm/vplc-prp"
 
     delegate_to: localhost
     register: vminfo
@@ -34,7 +34,7 @@
       username: '{{ vcenter_username }}'
       password: '{{ vcenter_password }}'
       validate_certs: false
-      folder: "/Audi/vm/vplc-prp-io"
+      folder: "/EC4P/vm/vplc-prp-io"
 
     delegate_to: localhost
     register: vminfo_io

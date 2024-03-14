@@ -28,13 +28,13 @@
   register: enable_prp_output
 
 
-- name: Gather all registered virtual machines
+- name: Gather all registered virtual machines (io VMs)
   community.vmware.vmware_vm_info:
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
     validate_certs: false
-    folder: "/Audi/vm/vplc-prp-io"
+    folder: "/EC4P/vm/vplc-prp-io"
 
   delegate_to: localhost
   register: vminfo_io
