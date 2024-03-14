@@ -37,7 +37,7 @@
       dest: "/opt/outputs/report_pps_{{inventory_hostname}}_{{ansible_date_time.epoch}}.txt"
     delegate_to: 10.1.3.122
     remote_user: root
-    when: "'ievd' in client or 'vPLC' in client or 'Ixia_Virtual_Test_Appliance' in client"    
+    when: "'ievd' in report_string or 'vPLC' in report_string"    
 
 
       
