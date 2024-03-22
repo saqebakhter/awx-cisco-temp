@@ -34,7 +34,7 @@
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
     validate_certs: false
-    folder: "/EC4P/vm/vplc-prp-io"
+    folder: "/UCS-Datacenter/vm/vplc-prp-io"
 
   delegate_to: localhost
   register: vminfo_io
