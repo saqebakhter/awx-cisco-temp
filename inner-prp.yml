@@ -16,7 +16,7 @@
 
 
 - name: set irq to cpu1 on vPLC
-  shell: "echo '1' >> /proc/irq/59/smp_affinity_list"
+  shell: "echo '1' >> /proc/irq/27/smp_affinity_list"
   delegate_to: "{{outer_item.ip_address}}"
   remote_user: root
 
