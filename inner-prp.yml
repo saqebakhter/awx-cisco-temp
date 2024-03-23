@@ -15,10 +15,6 @@
     msg: "vplc vm name : {{outer_item.guest_name}} env_id :  {{ env_id }} outer_index : {{ outer_index }} ipAddr: {{ipAddrvPLC}}"
 
 
-- name: set irq to cpu1 on vPLC
-  shell: "echo '1' >> /proc/irq/27/smp_affinity_list"
-  delegate_to: "{{outer_item.ip_address}}"
-  remote_user: root
 
 
 - name: enable prp on vPLC
@@ -27,6 +23,12 @@
   remote_user: root
   register: enable_prp_output
 
+
+- name: set irq to cpu1 on vPLC
+  shell: "echo '1' >> /proc/irq/27/smp_affinity_list"
+  delegate_to: "{{outer_item.ip_address}}"
+  remote_user: root
+  
 
 - name: Gather all registered virtual machines (io VMs)
   community.vmware.vmware_vm_info:
