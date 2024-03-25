@@ -35,9 +35,12 @@
 
   - shell: nsxdp-cli ens latency lcore dump
     register: lcore_dump 
-    
+
+  - shell: nsxdp-cli ens prp stats lcore list
+    register: lcore_dump_stats 
+
   - set_fact: 
-      report_string: "{{ report_string }}\n  ------\n{{inventory_hostname}}:------\n{{ lcore_dump.stdout }}"
+      report_string: "{{ report_string }}\n  ------\n{{inventory_hostname}}:------\n{{ lcore_dump.stdout }}\n{{ lcore_dump_stats.stdout }}\n"
 
 
   - name: copy report to host
