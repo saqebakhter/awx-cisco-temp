@@ -6,6 +6,12 @@
     register: vswitch_list 
     
 
+  - shell: nsxdp-cli ens latency lcore clear
+    register: empty 
+
+  - shell: nsxdp-cli ens prp lcore clear
+    register: empty 
+
 
   - shell: nsxdp-cli ens latency lcore set -s 0  --enable -r 1
     register: empty 
